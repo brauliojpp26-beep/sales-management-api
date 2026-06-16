@@ -7,9 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/productos")
+
 public class ProductoController {
     @Autowired
     private ProductoRepository repository;
@@ -17,8 +18,8 @@ public class ProductoController {
     @GetMapping
     public ResponseEntity<List<Producto>> listar(){
 
-       List<Producto> productos = repository.findAll();
-       return ResponseEntity.ok(productos);
+        List<Producto> productos = repository.findAll();
+        return ResponseEntity.ok(productos);
     }
 
     @PostMapping
